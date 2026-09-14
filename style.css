@@ -6,7 +6,7 @@
 /* ---- Variables de color y tipografía ---- */
 :root {
   --dark: #0d1b2a;      /* azul muy oscuro - header/footer */
-  --dark-2: #14273d;    /* azul oscuro secundario */
+  --dark-2: #5B83A8;    /* azul oscuro secundario 14273d */
   --accent: #00b4d8;    /* celeste tecnológico - color principal */
   --accent-2: #ffb703;  /* ámbar - botones de acción (comprar/whatsapp) */
   --bg: #f5f7fa;        /* fondo general de las páginas */
