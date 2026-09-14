@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IQUEEN TECH | Contacto</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo">Nexo<span>Tech</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html" class="activo">Contacto</a></li>
+      </ul>
+      <a href="carrito.html" class="nav-carrito">🛒 Carrito</a>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:60px 24px;">
+    <h1>Contáctanos</h1>
+    <p>Estamos para ayudarte a elegir, comprar o dar mantenimiento a tus equipos.</p>
+  </section>
+
+  <section class="bg-white">
+    <div class="container">
+      <div class="contacto-grid">
+
+        <!-- ===== FORMULARIO ===== -->
+        <div>
+          <h2 style="margin-bottom:20px;">Envíanos un mensaje</h2>
+          <form>
+            <div class="campo">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+            </div>
+            <div class="campo">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+            <div class="campo">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="999 999 999">
+            </div>
+            <div class="campo">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+          </form>
+          <p style="color:var(--muted); font-size:0.85rem; margin-top:10px;">
+            * Este formulario es una maqueta del curso; aún no envía datos a un servidor.
+          </p>
+        </div>
+
+        <!-- ===== INFO DE CONTACTO ===== -->
+        <div class="info-contacto">
+          <h2 style="margin-bottom:20px;">Otros medios de contacto</h2>
+
+          <div class="item">
+            <div class="icono">📞</div>
+            <div>
+              <strong>Teléfono / WhatsApp</strong>
+              <p style="margin:4px 0 0;"><a href="https://wa.me/51999999999">+51 999 999 999</a></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="icono">✉️</div>
+            <div>
+              <strong>Correo</strong>
+              <p style="margin:4px 0 0;"><a href="mailto:contacto@nexotech.com">contacto@nexotech.com</a></p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="icono">📍</div>
+            <div>
+              <strong>Ubicación</strong>
+              <p style="margin:4px 0 0;">Av. Tecnología 123, Callao, Perú</p>
+            </div>
+          </div>
+
+          <!-- ===== MAPA DE UBICACIÓN ===== -->
+          <div class="mapa" style="margin:18px 0;">
+            <iframe
+              src="https://www.google.com/maps?q=Callao,Peru&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- ===== REDES SOCIALES ===== -->
+          <strong>Síguenos</strong>
+          <div class="redes">
+            <a href="https://facebook.com" title="Facebook">f</a>
+            <a href="https://instagram.com" title="Instagram">📷</a>
+            <a href="https://wa.me/51999999999" title="WhatsApp">💬</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 NexoTech - Todos los derechos reservados.</p>
+    <p>Trabajo académico - Curso de Desarrollo Web</p>
+  </footer>
+
+  <a href="https://wa.me/51999999999" class="whatsapp-flotante" title="Escríbenos por WhatsApp">💬</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

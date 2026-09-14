@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexoTech | Carrito de compras</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo">Nexo<span>Tech</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="carrito.html" class="nav-carrito">🛒 Carrito</a>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:60px 24px;">
+    <h1>Tu carrito de compras</h1>
+    <p>Revisa el resumen de tu pedido y elige cómo quieres recibirlo.</p>
+  </section>
+
+  <section class="bg-white">
+    <div class="container">
+
+      <!-- ===== RESUMEN DE PEDIDO (ejemplo) ===== -->
+      <table class="carrito-tabla">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>💻 Laptop Pro 15"</td>
+            <td>1</td>
+            <td>S/ 3,299</td>
+            <td>S/ 3,299</td>
+          </tr>
+          <tr>
+            <td>🔒 Cámara de Seguridad WiFi</td>
+            <td>2</td>
+            <td>S/ 249</td>
+            <td>S/ 498</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="carrito-total">
+        <span>Total del pedido:</span>
+        <strong>S/ 3,797</strong>
+      </div>
+
+      <p style="text-align:center; color:var(--muted); margin-top:16px;">
+        Este es un resumen de ejemplo. Para agregar o quitar productos, vuelve a la página de
+        <a href="productos.html" style="color:var(--accent); font-weight:600;">Productos</a>.
+      </p>
+
+      <!-- ===== PASOS PARA CERRAR LA COMPRA ===== -->
+      <div class="carrito-pasos">
+        <div class="paso">
+          <div class="num">1</div>
+          <h3>Revisa tu pedido</h3>
+          <p>Confirma los productos, cantidades y el total mostrado arriba.</p>
+        </div>
+        <div class="paso">
+          <div class="num">2</div>
+          <h3>Escríbenos por WhatsApp</h3>
+          <p>Envíanos tu pedido y coordinamos el medio de pago y la entrega o envío.</p>
+        </div>
+        <div class="paso">
+          <div class="num">3</div>
+          <h3>Recibe tu compra</h3>
+          <p>Coordinamos contigo el punto de entrega o el envío a tu domicilio.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:40px;">
+        <a href="https://wa.me/51999999999?text=Hola%2C%20quiero%20finalizar%20mi%20compra%20en%20NexoTech"
+           class="btn btn-whatsapp" style="font-size:1.05rem; padding:16px 36px;">
+          💬 Finalizar compra por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 NexoTech - Todos los derechos reservados.</p>
+    <p>Trabajo académico - Curso de Desarrollo Web</p>
+  </footer>
+
+  <a href="https://wa.me/51999999999" class="whatsapp-flotante" title="Escríbenos por WhatsApp">💬</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
