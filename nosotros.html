@@ -1,98 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- Página generada para el curso Desarrollo Web: HTML + CSS + Bootstrap 5.3.8 -->
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IQUEEN | Nosotros</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nosotros | IQUEEN Technology</title>
+  <meta name="description" content="Conoce la visión, misión y datos de IQUEEN Technology.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <!-- FUENTES PERSONALIZADAS (Google Fonts): Poppins para títulos y Nunito para el texto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- BOOTSTRAP 5.3.8 (CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- NUESTRO CSS (va después de Bootstrap para poder personalizarlo) -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ENCABEZADO + MENÚ DE NAVEGACIÓN (etiquetas semánticas <header> y <nav>) -->
   <header>
-    <div class="navbar">
-      <a href="index.html" class="logo">IQUEEN<span>Tech</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html" class="activo">Nosotros</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <a href="carrito.html" class="nav-carrito">🛒 Carrito</a>
-      <button class="menu-toggle">☰</button>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Menú principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">IQUEEN <span>Technology</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir o cerrar el menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="nosotros.html" aria-current="page">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="productos.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="productos.html">Todas las categorías</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="laptops.html">Laptops</a></li><li><a class="dropdown-item" href="pcs.html">PC's</a></li><li><a class="dropdown-item" href="domotica.html">Domótica</a></li><li><a class="dropdown-item" href="seguridad.html">Seguridad</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          </ul>
+          <!-- Botón que abre el panel de configuración del usuario -->
+          <button class="btn btn-claro btn-sm ms-lg-3 mt-2 mt-lg-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#panel-ajustes" aria-controls="panel-ajustes">Ajustes</button>
+        </div>
+      </div>
+    </nav>
   </header>
-  <!-- ===== Encabezado de página ===== -->
-  <section class="hero" style="padding:60px 24px;">
-    <h1>Nosotros</h1>
-    <p>Conoce quiénes somos y hacia dónde vamos.</p>
-  </section>
-  <!-- ===== VISIÓN Y MISIÓN ===== -->
-  <section class="bg-white">
-    <div class="container">
-      <h2 class="section-title">Visión y Misión</h2>
-      <p class="section-subtitle">
-        Estos dos pilares guían cada decisión que tomamos en NexoTech.
-      </p>
-      <div class="vision-mision">
-        <div class="vm-card">
-          <div class="icono">🎯</div>
-          <h3>Visión</h3>
-          <p>
-            Ser reconocidos como la tienda de tecnología más confiable de la región,
-            acompañando a hogares y empresas en su camino hacia la modernización digital,
-            con productos de calidad y un servicio cercano y honesto.
-          </p>
+
+  <!-- CONFIGURACIÓN ÚTIL PARA EL USUARIO (solo HTML + CSS; el CSS está en la sección 7 de estilos.css) -->
+  <aside class="offcanvas offcanvas-end" tabindex="-1" id="panel-ajustes" aria-labelledby="titulo-ajustes">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5" id="titulo-ajustes">Ajustes de la página</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar ajustes"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="text-secondary small">Personaliza cómo ves esta página. Los cambios se aplican al instante.</p>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="ajuste-oscuro">
+        <label class="form-check-label" for="ajuste-oscuro">Modo oscuro</label>
+      </div>
+
+      <fieldset class="mb-3">
+        <legend class="fs-6">Tamaño del texto</legend>
+        <div class="btn-group w-100" role="group" aria-label="Tamaño del texto">
+          <input type="radio" class="btn-check" name="txt" id="txt-normal" checked>
+          <label class="btn btn-outline-secondary" for="txt-normal">A</label>
+          <input type="radio" class="btn-check" name="txt" id="txt-medio">
+          <label class="btn btn-outline-secondary" for="txt-medio">A+</label>
+          <input type="radio" class="btn-check" name="txt" id="txt-grande">
+          <label class="btn btn-outline-secondary" for="txt-grande">A++</label>
         </div>
-        <div class="vm-card">
-          <div class="icono">🚀</div>
-          <h3>Misión</h3>
-          <p>
-            Ofrecer equipos tecnológicos accesibles y de calidad —laptops, PCs, domótica
-            y seguridad electrónica— brindando siempre asesoría experta antes, durante
-            y después de cada compra, para que nuestros clientes tomen la mejor decisión.
-          </p>
+      </fieldset>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="ajuste-sin-anim">
+        <label class="form-check-label" for="ajuste-sin-anim">Quitar animaciones</label>
+      </div>
+      <p class="text-secondary small mb-0">Al cambiar de página los ajustes vuelven a su estado inicial.</p>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="contenido">
+    <!-- Cabecera de la página (ANIMACIÓN 4: degradado en movimiento) -->
+    <section class="cabecera">
+      <div class="container">
+        <h1 class="anim-aparecer">Nosotros</h1>
+        <p class="lead mb-0 anim-aparecer retardo-1">Conoce quiénes somos y hacia dónde vamos.</p>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-vm">
+      <div class="container">
+        <h2 class="seccion-titulo text-center" id="t-vm">Visión y Misión</h2>
+        <div class="row g-4 mt-2">
+          <div class="col-md-6 anim-aparecer retardo-1">
+            <article class="card tarjeta p-4"><h3 class="h4">Visión</h3>
+              <p class="mb-0"><!-- RELLENAR: tu visión real -->Ser la tienda de tecnología de referencia para hogares y empresas de la región, reconocida por su confianza y calidad de servicio.</p></article>
+          </div>
+          <div class="col-md-6 anim-aparecer retardo-2">
+            <article class="card tarjeta p-4"><h3 class="h4">Misión</h3>
+              <p class="mb-0"><!-- RELLENAR: tu misión real -->Ofrecer equipos y soluciones tecnológicas accesibles, acompañando a cada cliente con asesoría experta antes, durante y después de la compra.</p></article>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ===== VALORES (contenido de apoyo, opcional pero útil) ===== -->
-  <section>
+    </section>
+
+    <section class="seccion bg-body-tertiary" aria-labelledby="t-datos">
+      <div class="container">
+        <h2 class="seccion-titulo" id="t-datos">Datos de la empresa</h2>
+        <dl class="row">
+          <dt class="col-sm-3">Razón social</dt><dd class="col-sm-9">IQUEEN S.A.C.</dd>
+          <dt class="col-sm-3">RUC</dt><dd class="col-sm-9"><!-- RELLENAR: RUC de 11 dígitos -->por confirmar</dd>
+          <dt class="col-sm-3">Dirección</dt><dd class="col-sm-9"><!-- RELLENAR: dirección completa -->por confirmar</dd>
+          <dt class="col-sm-3">Horario</dt><dd class="col-sm-9"><!-- RELLENAR: ej. Lun a Sáb 9:00 a 19:00 -->por confirmar</dd>
+        </dl>
+        <a class="btn btn-iq" href="contacto.html">Ir a Contacto</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP (ANIMACIÓN 3: pulso) -->
+  <a class="wsp-flotante" href="https://wa.me/51992687595?text=Hola%20IQUEEN%2C%20necesito%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en otra pestaña)"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0 0 2.3 17.6L1 23l5.5-1.4a11.7 11.7 0 0 0 5.6 1.4h.01A11.7 11.7 0 0 0 20.5 3.5zM12.1 21a9.7 9.7 0 0 1-5-1.4l-.35-.2-3.3.85.9-3.2-.25-.35A9.7 9.7 0 1 1 12.1 21zm5.3-7.3c-.3-.15-1.7-.85-2-.95s-.45-.15-.65.15-.75.95-.9 1.15-.35.2-.65.05a7.9 7.9 0 0 1-2.3-1.4 8.7 8.7 0 0 1-1.6-2c-.15-.3 0-.45.13-.6l.45-.5a2 2 0 0 0 .3-.5.55.55 0 0 0 0-.5c-.07-.15-.65-1.55-.9-2.1s-.5-.5-.65-.5h-.55a1.1 1.1 0 0 0-.8.4 3.3 3.3 0 0 0-1 2.45 5.7 5.7 0 0 0 1.2 3 13 13 0 0 0 5 4.4c.7.3 1.25.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .17-1.4c-.07-.12-.27-.2-.57-.35z"/></svg></a>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie py-5">
     <div class="container">
-      <h2 class="section-title">Lo que nos representa</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="icono">🤝</div>
-          <h3>Cercanía</h3>
-          <p>Atención personalizada en cada consulta, sin importar el tamaño de la compra.</p>
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h2 class="h5 text-white">IQUEEN Technology</h2>
+          <p class="mb-1">IQUEEN S.A.C.</p>
+          <p class="mb-0">RUC: <!-- RELLENAR: RUC de 11 dígitos -->por confirmar</p>
         </div>
-        <div class="card">
-          <div class="icono">✅</div>
-          <h3>Calidad</h3>
-          <p>Trabajamos solo con marcas y proveedores que garantizan buen desempeño.</p>
+        <div class="col-md-4">
+          <h2 class="h5 text-white">Navegación</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+          </ul>
         </div>
-        <div class="card">
-          <div class="icono">📚</div>
-          <h3>Asesoría</h3>
-          <p>Te orientamos para elegir el equipo que realmente se ajusta a tu necesidad.</p>
+        <div class="col-md-4">
+          <h2 class="h5 text-white">Contacto</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="https://wa.me/51992687595?text=Hola%20IQUEEN" target="_blank" rel="noopener">WhatsApp: +51 992 687 595</a></li>
+            <li><a href="mailto:jeandanortega@gmail.com">jeandanortega@gmail.com</a></li>
+            <li><a href="contacto.html">Ubicación y formulario</a></li>
+          </ul>
         </div>
       </div>
+      <hr class="border-secondary my-4">
+      <p class="small mb-0">&copy; 2026 IQUEEN S.A.C. Todos los derechos reservados.</p>
     </div>
-  </section>
-  <section class="cta-contacto">
-    <h2>¿Quieres saber más sobre nosotros?</h2>
-    <p>Con gusto resolvemos tus dudas por WhatsApp o por nuestro formulario de contacto.</p>
-    <div class="cta-botones">
-      <a href="https://wa.me/51992687595" class="btn btn-whatsapp">💬 Escribir por WhatsApp</a>
-      <a href="contacto.html" class="btn btn-outline">Ir a Contacto</a>
-    </div>
-  </section>
-  <footer>
-    <p>© 2026 IQUEEN S.A.C. - Todos los derechos reservados.</p>
-    <p>Trabajo académico - Curso de Desarrollo Web</p>
   </footer>
-  <a href="https://wa.me/51992687595" class="whatsapp-flotante" title="Escríbenos por WhatsApp">💬</a>
-  <script src="script.js"></script>
+
+  <!-- BOOTSTRAP 5.3.8 (JavaScript): necesario para el menú móvil, el desplegable y el panel de ajustes -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

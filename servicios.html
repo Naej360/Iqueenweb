@@ -1,80 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- Página generada para el curso Desarrollo Web: HTML + CSS + Bootstrap 5.3.8 -->
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> IQUEEN | Servicios</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicios | IQUEEN Technology</title>
+  <meta name="description" content="Consultoría TI, soporte técnico y redes. Solicítalos por contacto directo.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <!-- FUENTES PERSONALIZADAS (Google Fonts): Poppins para títulos y Nunito para el texto -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- BOOTSTRAP 5.3.8 (CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- NUESTRO CSS (va después de Bootstrap para poder personalizarlo) -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ENCABEZADO + MENÚ DE NAVEGACIÓN (etiquetas semánticas <header> y <nav>) -->
   <header>
-    <div class="navbar">
-      <a href="index.html" class="logo">IQUEEN<span> Technology</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="servicios.html" class="activo">Servicios</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <a href="carrito.html" class="nav-carrito">🛒 Carrito</a>
-      <button class="menu-toggle">☰</button>
-    </div>
-  </header>
-  <section class="hero" style="padding:60px 24px;">
-    <h1>Nuestros servicios</h1>
-    <p>No solo vendemos equipos: te acompañamos para que funcionen como esperas.</p>
-  </section>
-  <!-- ===== LOS 3 SERVICIOS PRINCIPALES ===== -->
-  <section class="bg-white">
-    <div class="container">
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="icono">🛠️</div>
-          <h3>Consultoría TI</h3>
-          <p>
-            Te ayudamos a identificar qué equipos y soluciones tecnológicas necesita
-            tu hogar o negocio, evitando compras innecesarias y optimizando tu inversión.
-          </p>
-          <a href="contacto.html" class="enlace">Solicitar consultoría →</a>
-        </div>
-        <div class="card">
-          <div class="icono">💻</div>
-          <h3>Soporte técnico</h3>
-          <p>
-            Mantenimiento preventivo y correctivo, formateo, instalación de programas
-            y solución de fallas en laptops, PCs y equipos de oficina.
-          </p>
-          <a href="contacto.html" class="enlace">Solicitar soporte →</a>
-        </div>
-        <div class="card">
-          <div class="icono">📶</div>
-          <h3>Redes</h3>
-          <p>
-            Instalación y configuración de redes cableadas e inalámbricas, mejora de
-            cobertura WiFi y conexión de dispositivos inteligentes en tu hogar u oficina.
-          </p>
-          <a href="contacto.html" class="enlace">Solicitar instalación →</a>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Menú principal">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">IQUEEN <span>Technology</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir o cerrar el menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link active" href="servicios.html" aria-current="page">Servicios</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="productos.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="productos.html">Todas las categorías</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="laptops.html">Laptops</a></li><li><a class="dropdown-item" href="pcs.html">PC's</a></li><li><a class="dropdown-item" href="domotica.html">Domótica</a></li><li><a class="dropdown-item" href="seguridad.html">Seguridad</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          </ul>
+          <!-- Botón que abre el panel de configuración del usuario -->
+          <button class="btn btn-claro btn-sm ms-lg-3 mt-2 mt-lg-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#panel-ajustes" aria-controls="panel-ajustes">Ajustes</button>
         </div>
       </div>
+    </nav>
+  </header>
+
+  <!-- CONFIGURACIÓN ÚTIL PARA EL USUARIO (solo HTML + CSS; el CSS está en la sección 7 de estilos.css) -->
+  <aside class="offcanvas offcanvas-end" tabindex="-1" id="panel-ajustes" aria-labelledby="titulo-ajustes">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5" id="titulo-ajustes">Ajustes de la página</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar ajustes"></button>
     </div>
-  </section>
-  <!-- ===== CTA: siempre guiado a contacto, como pide la tarea ===== -->
-  <section class="cta-contacto">
-    <h2>¿Necesitas alguno de estos servicios?</h2>
-    <p>Cuéntanos qué necesitas y coordinamos una atención personalizada.</p>
-    <div class="cta-botones">
-      <a href="https://wa.me/51992687595" class="btn btn-whatsapp">💬 Escribir por WhatsApp</a>
-      <a href="contacto.html" class="btn btn-outline">Ir a Contacto</a>
+    <div class="offcanvas-body">
+      <p class="text-secondary small">Personaliza cómo ves esta página. Los cambios se aplican al instante.</p>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="ajuste-oscuro">
+        <label class="form-check-label" for="ajuste-oscuro">Modo oscuro</label>
+      </div>
+
+      <fieldset class="mb-3">
+        <legend class="fs-6">Tamaño del texto</legend>
+        <div class="btn-group w-100" role="group" aria-label="Tamaño del texto">
+          <input type="radio" class="btn-check" name="txt" id="txt-normal" checked>
+          <label class="btn btn-outline-secondary" for="txt-normal">A</label>
+          <input type="radio" class="btn-check" name="txt" id="txt-medio">
+          <label class="btn btn-outline-secondary" for="txt-medio">A+</label>
+          <input type="radio" class="btn-check" name="txt" id="txt-grande">
+          <label class="btn btn-outline-secondary" for="txt-grande">A++</label>
+        </div>
+      </fieldset>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="ajuste-sin-anim">
+        <label class="form-check-label" for="ajuste-sin-anim">Quitar animaciones</label>
+      </div>
+      <p class="text-secondary small mb-0">Al cambiar de página los ajustes vuelven a su estado inicial.</p>
     </div>
-  </section>
-  <footer>
-    <p>© 2026 IQUEEN S.A.C. - Todos los derechos reservados.</p>
-    <p>Trabajo académico - Curso de Desarrollo Web</p>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="contenido">
+    <!-- Cabecera de la página (ANIMACIÓN 4: degradado en movimiento) -->
+    <section class="cabecera">
+      <div class="container">
+        <h1 class="anim-aparecer">Nuestros servicios</h1>
+        <p class="lead mb-0 anim-aparecer retardo-1">Tres servicios para que tu tecnología funcione como esperas.</p>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="t-s">
+      <div class="container text-center">
+        <h2 class="visually-hidden" id="t-s">Lista de servicios</h2>
+        <div class="row g-4">
+        <div class="col-md-4 anim-aparecer retardo-1">
+          <article class="card tarjeta text-center p-3">
+            <div class="card-body">
+              <svg class="icono" aria-hidden="true" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg>
+              <h3 class="h5 mt-3">Consultoría TI</h3>
+              <p>Identificamos qué equipos y soluciones necesita tu hogar o negocio, evitando compras innecesarias.</p>
+              <a class="btn btn-iq" href="contacto.html#formulario">Solicitar</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4 anim-aparecer retardo-2">
+          <article class="card tarjeta text-center p-3">
+            <div class="card-body">
+              <svg class="icono" aria-hidden="true" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+              <h3 class="h5 mt-3">Soporte técnico</h3>
+              <p>Mantenimiento preventivo y correctivo, instalación de programas y solución de fallas.</p>
+              <a class="btn btn-iq" href="contacto.html#formulario">Solicitar</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-4 anim-aparecer retardo-3">
+          <article class="card tarjeta text-center p-3">
+            <div class="card-body">
+              <svg class="icono" aria-hidden="true" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0"/><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg>
+              <h3 class="h5 mt-3">Redes</h3>
+              <p>Instalación y configuración de redes cableadas e inalámbricas, y mejora de cobertura WiFi.</p>
+              <a class="btn btn-iq" href="contacto.html#formulario">Solicitar</a>
+            </div>
+          </article>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLA comparativa (las tablas se usan para comparar datos) -->
+    <section class="seccion bg-body-tertiary" aria-labelledby="t-comp">
+      <div class="container">
+        <h2 class="seccion-titulo" id="t-comp">Compara nuestros servicios</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <caption>Qué incluye cada servicio y para quién es ideal</caption>
+            <thead><tr><th scope="col">Servicio</th><th scope="col">Qué incluye</th><th scope="col">Ideal para</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Consultoría TI</th><td>Diagnóstico y recomendación de equipos</td><td>Hogares y negocios que van a comprar</td></tr>
+              <tr><th scope="row">Soporte técnico</th><td>Mantenimiento, configuración y reparación</td><td>Equipos lentos o con fallas</td></tr>
+              <tr><th scope="row">Redes</th><td>Cableado, WiFi y configuración</td><td>Oficinas, tiendas y casas</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alert alert-info mt-4" role="alert">
+          Para cotizar cualquier servicio, <a class="alert-link" href="contacto.html#formulario">escríbenos desde Contacto</a> o por
+          <a class="alert-link" href="https://wa.me/51992687595?text=Hola%20IQUEEN%2C%20quiero%20solicitar%20un%20servicio." target="_blank" rel="noopener">WhatsApp</a>.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP (ANIMACIÓN 3: pulso) -->
+  <a class="wsp-flotante" href="https://wa.me/51992687595?text=Hola%20IQUEEN%2C%20necesito%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en otra pestaña)"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.7 11.7 0 0 0 2.3 17.6L1 23l5.5-1.4a11.7 11.7 0 0 0 5.6 1.4h.01A11.7 11.7 0 0 0 20.5 3.5zM12.1 21a9.7 9.7 0 0 1-5-1.4l-.35-.2-3.3.85.9-3.2-.25-.35A9.7 9.7 0 1 1 12.1 21zm5.3-7.3c-.3-.15-1.7-.85-2-.95s-.45-.15-.65.15-.75.95-.9 1.15-.35.2-.65.05a7.9 7.9 0 0 1-2.3-1.4 8.7 8.7 0 0 1-1.6-2c-.15-.3 0-.45.13-.6l.45-.5a2 2 0 0 0 .3-.5.55.55 0 0 0 0-.5c-.07-.15-.65-1.55-.9-2.1s-.5-.5-.65-.5h-.55a1.1 1.1 0 0 0-.8.4 3.3 3.3 0 0 0-1 2.45 5.7 5.7 0 0 0 1.2 3 13 13 0 0 0 5 4.4c.7.3 1.25.5 1.7.6a4.1 4.1 0 0 0 1.9.1 3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .17-1.4c-.07-.12-.27-.2-.57-.35z"/></svg></a>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="pie py-5">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <h2 class="h5 text-white">IQUEEN Technology</h2>
+          <p class="mb-1">IQUEEN S.A.C.</p>
+          <p class="mb-0">RUC: <!-- RELLENAR: RUC de 11 dígitos -->por confirmar</p>
+        </div>
+        <div class="col-md-4">
+          <h2 class="h5 text-white">Navegación</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h2 class="h5 text-white">Contacto</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="https://wa.me/51992687595?text=Hola%20IQUEEN" target="_blank" rel="noopener">WhatsApp: +51 992 687 595</a></li>
+            <li><a href="mailto:jeandanortega@gmail.com">jeandanortega@gmail.com</a></li>
+            <li><a href="contacto.html">Ubicación y formulario</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="small mb-0">&copy; 2026 IQUEEN S.A.C. Todos los derechos reservados.</p>
+    </div>
   </footer>
-  <a href="https://wa.me/51992687595" class="whatsapp-flotante" title="Escríbenos por WhatsApp">💬</a>
-  <script src="script.js"></script>
+
+  <!-- BOOTSTRAP 5.3.8 (JavaScript): necesario para el menú móvil, el desplegable y el panel de ajustes -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

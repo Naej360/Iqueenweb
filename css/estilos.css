@@ -1,0 +1,362 @@
+/* =====================================================================
+   estilos.css  -  IQUEEN Technology (versión simple para la tarea)
+   Solo CSS puro encima de Bootstrap 5.3.8. Sin JavaScript propio.
+
+   ÍNDICE
+   1. Fuentes personalizadas y colores (variables)
+   2. Estilos generales y accesibilidad
+   3. Navegación (transición de color y de posición)
+   4. Portada (hero)
+   5. Tarjetas y botones (transiciones)
+   6. LAS 5 ANIMACIONES CON @keyframes   <-- lo que pide el profesor
+   7. Panel de configuración del usuario (modo oscuro, tamaño de texto, sin animaciones)
+   8. Respeto a "reducir movimiento" del sistema
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. FUENTES PERSONALIZADAS Y COLORES
+   Las fuentes (Poppins y Nunito) se cargan en el <head> de cada página
+   con <link> a Google Fonts. Aquí solo las usamos con font-family.
+   Si Google Fonts no carga, el navegador usa la fuente de respaldo
+   (sans-serif), así que la página nunca se ve rota.
+   Colores revisados con la norma WCAG (contraste mínimo 4.5:1 en texto).
+   --------------------------------------------------------------------- */
+:root {
+  --iq-oscuro: #0d1b2a;         /* azul muy oscuro: fondos de menú y pie */
+  --iq-acento: #00b4d8;         /* celeste: detalles sobre fondo oscuro */
+  --iq-acento-texto: #00708a;   /* celeste oscuro: texto/botones sobre fondo claro (contraste 5.7:1) */
+  --iq-acento-hover: #005a70;   /* al pasar el mouse por un botón */
+  --iq-whatsapp: #146c43;       /* verde oscuro (contraste 6.5:1 con texto blanco) */
+
+  --fuente-titulos: "Poppins", sans-serif;
+  --fuente-texto: "Nunito", sans-serif;
+
+  /* Le decimos a Bootstrap que use nuestras fuentes */
+  --bs-body-font-family: var(--fuente-texto);
+}
+
+body {
+  font-family: var(--fuente-texto);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand, .btn {
+  font-family: var(--fuente-titulos);
+}
+
+
+/* ---------------------------------------------------------------------
+   2. ESTILOS GENERALES Y ACCESIBILIDAD
+   --------------------------------------------------------------------- */
+
+/* Enlace "Saltar al contenido": solo se ve al navegar con el teclado (Tab) */
+.saltar-contenido {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;                       /* escondido arriba */
+  z-index: 2000;
+  padding: .6rem 1rem;
+  background: #fff;
+  color: var(--iq-oscuro);
+  border-radius: .4rem;
+  transition: top .2s ease;         /* baja suavemente al recibir foco */
+}
+.saltar-contenido:focus { top: 1rem; }
+
+/* Foco visible y claro para quien usa teclado */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--iq-acento);
+  outline-offset: 3px;
+}
+
+a { color: var(--iq-acento-texto); }
+a:hover { color: var(--iq-acento-hover); }
+
+.seccion { padding: 4rem 0; }
+.seccion-titulo { font-weight: 700; margin-bottom: .5rem; }
+.seccion-sub { max-width: 40rem; margin: 0 auto 2.5rem; color: var(--bs-secondary-color); }
+
+/* Texto de ayuda en sitios con fondo oscuro */
+.fondo-oscuro { background: var(--iq-oscuro); color: #fff; }
+.fondo-oscuro a { color: #7fdcf0; }
+.fondo-oscuro a:hover { color: #fff; }
+
+
+/* ---------------------------------------------------------------------
+   3. NAVEGACIÓN
+   TRANSICIÓN DE COLOR Y DE POSICIÓN: al pasar el mouse, el texto cambia
+   de color y una línea celeste crece desde el centro (width 0 -> 100%).
+   --------------------------------------------------------------------- */
+.navbar { background: var(--iq-oscuro); }
+.navbar-brand { font-weight: 700; letter-spacing: .02em; }
+.navbar-brand span { color: var(--iq-acento); }
+
+.navbar .nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, .85);
+  transition: color .3s ease;             /* cambio suave de color */
+}
+.navbar .nav-link::after {                /* la línea animada */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: .15rem;
+  width: 0;
+  height: 3px;
+  background: var(--iq-acento);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width .3s ease;             /* crece desde el centro */
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active { color: #fff; }
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus::after,
+.navbar .nav-link.active::after { width: 60%; }
+
+/* El menú desplegable también cambia de color suavemente */
+.dropdown-item { transition: background-color .25s ease, padding-left .25s ease; }
+.dropdown-item:hover { padding-left: 1.5rem; }   /* se desplaza un poco a la derecha */
+
+
+/* ---------------------------------------------------------------------
+   4. PORTADA (HERO)
+   El fondo con degradado se mueve solo (animación 4, ver sección 6).
+   --------------------------------------------------------------------- */
+.hero {
+  color: #fff;
+  padding: 5rem 0;
+  background: linear-gradient(120deg, #0d1b2a, #12466b, #00708a, #0d1b2a);
+  background-size: 300% 300%;
+  overflow: hidden;
+}
+.hero h1, .cabecera h1, .fondo-oscuro h2, .pie h2 { color: #fff; }
+.hero h1 { font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); }
+.hero .lead { color: rgba(255, 255, 255, .92); }
+.hero img { max-width: 100%; height: auto; filter: brightness(0) invert(1); opacity: .9; } /* ilustración en blanco para que contraste con el fondo */
+
+/* Cabecera de las páginas internas (más baja que la portada) */
+.cabecera {
+  color: #fff;
+  padding: 3rem 0;
+  background: linear-gradient(120deg, #0d1b2a, #12466b, #00708a, #0d1b2a);
+  background-size: 300% 300%;
+}
+.cabecera h1 { font-weight: 700; }
+.cabecera .breadcrumb { --bs-breadcrumb-divider-color: rgba(255,255,255,.6); }
+.cabecera .breadcrumb a { color: #7fdcf0; }
+.cabecera .breadcrumb-item.active { color: #fff; }
+
+
+/* ---------------------------------------------------------------------
+   5. TARJETAS Y BOTONES (transiciones)
+   TRANSICIÓN DE POSICIÓN: la tarjeta sube 8px al pasar el mouse.
+   TRANSICIÓN DE COLOR: el borde y la sombra cambian suavemente.
+   La imagen hace un zoom suave dentro de su marco.
+   --------------------------------------------------------------------- */
+.tarjeta {
+  height: 100%;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.tarjeta:hover,
+.tarjeta:focus-within {
+  transform: translateY(-8px);
+  border-color: var(--iq-acento);
+  box-shadow: 0 .9rem 1.6rem rgba(0, 0, 0, .15);
+}
+
+.marco-img { overflow: hidden; background: #e8f4f8; }
+.marco-img img {
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.tarjeta:hover .marco-img img { transform: scale(1.08); }
+
+.icono { color: var(--iq-acento-texto); display: inline-block; }
+
+/* Botón principal de la marca */
+.btn-iq {
+  background: var(--iq-acento-texto);
+  border: 2px solid var(--iq-acento-texto);
+  color: #fff;
+  font-weight: 600;
+  transition: background-color .3s ease, border-color .3s ease, transform .2s ease;
+}
+.btn-iq:hover, .btn-iq:focus {
+  background: var(--iq-acento-hover);
+  border-color: var(--iq-acento-hover);
+  color: #fff;
+  transform: translateY(-2px);            /* sube un poquito */
+}
+
+/* Botón de contorno claro (sobre fondos oscuros) */
+.btn-claro {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color .3s ease, color .3s ease, transform .2s ease;
+}
+.btn-claro:hover, .btn-claro:focus { background: #fff; color: var(--iq-oscuro); transform: translateY(-2px); }
+
+/* Botón verde de WhatsApp */
+.btn-wsp {
+  background: var(--iq-whatsapp);
+  border: 2px solid var(--iq-whatsapp);
+  color: #fff;
+  font-weight: 600;
+  transition: background-color .3s ease, transform .2s ease;
+}
+.btn-wsp:hover, .btn-wsp:focus { background: #0f5132; border-color: #0f5132; color: #fff; transform: translateY(-2px); }
+
+/* Pie de página */
+.pie { background: var(--iq-oscuro); color: rgba(255,255,255,.85); }
+.pie a { color: #7fdcf0; text-decoration: none; transition: color .3s ease; }
+.pie a:hover { color: #fff; text-decoration: underline; }
+
+/* Mapa responsive */
+.mapa { width: 100%; height: 22rem; border: 0; border-radius: 1rem; }
+
+
+/* =====================================================================
+   6. LAS 5 ANIMACIONES CON @keyframes
+   (Una animación = un @keyframes + la propiedad "animation" en la clase.)
+   ===================================================================== */
+
+/* ---- ANIMACIÓN 1: APARECER DESDE ABAJO (fade-in + movimiento) --------
+   Dónde: títulos y tarjetas al cargar cada página.
+   Efecto: pasa de invisible y 24px más abajo a su lugar, suavemente.   */
+@keyframes aparecer-arriba {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+.anim-aparecer { animation: aparecer-arriba .8s ease-out both; }
+.retardo-1 { animation-delay: .15s; }     /* para que las tarjetas entren en cadena */
+.retardo-2 { animation-delay: .30s; }
+.retardo-3 { animation-delay: .45s; }
+.retardo-4 { animation-delay: .60s; }
+
+/* ---- ANIMACIÓN 2: FLOTAR (movimiento infinito suave) -----------------
+   Dónde: la imagen principal de la portada.
+   Efecto: sube y baja lentamente, como si flotara.                      */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.anim-flotar { animation: flotar 4s ease-in-out infinite; }
+
+/* ---- ANIMACIÓN 3: PULSO (ondas que llaman la atención) ---------------
+   Dónde: el botón flotante de WhatsApp.
+   Efecto: una onda verde crece y se desvanece, una y otra vez.          */
+@keyframes pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(20, 108, 67, .6); }
+  70%  { box-shadow: 0 0 0 18px rgba(20, 108, 67, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(20, 108, 67, 0); }
+}
+.wsp-flotante {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--iq-whatsapp);
+  color: #fff;
+  transition: transform .3s ease, background-color .3s ease;
+  animation: pulso 2.2s infinite;
+}
+.wsp-flotante:hover { background: #0f5132; color: #fff; transform: scale(1.12); }
+
+/* ---- ANIMACIÓN 4: DEGRADADO QUE SE MUEVE (cambio suave de color) -----
+   Dónde: fondo de la portada y de las cabeceras.
+   Efecto: los colores del fondo se desplazan lentamente.                */
+@keyframes degradado-movil {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero, .cabecera { animation: degradado-movil 14s ease infinite; }
+
+/* ---- ANIMACIÓN 5: REBOTE (interacción al pasar el mouse) -------------
+   Dónde: los iconos de las tarjetas de servicios.
+   Efecto: el icono da un saltito cuando el mouse entra a la tarjeta.    */
+@keyframes rebote {
+  0%, 100% { transform: translateY(0); }
+  30%      { transform: translateY(-14px); }
+  60%      { transform: translateY(0); }
+  80%      { transform: translateY(-6px); }
+}
+.tarjeta:hover .icono,
+.tarjeta:focus-within .icono { animation: rebote .7s ease; }
+
+
+/* ---------------------------------------------------------------------
+   7. PANEL DE CONFIGURACIÓN DEL USUARIO (solo CSS, sin JavaScript)
+   El panel (offcanvas de Bootstrap) tiene interruptores y botones de
+   opción. Con el selector :has() el CSS detecta cuál está marcado y
+   cambia toda la página. Los ajustes valen para la página que estás
+   viendo (sin JavaScript el navegador no los recuerda al cambiar de página).
+   --------------------------------------------------------------------- */
+
+/* a) Tamaño de texto: como Bootstrap usa "rem", al cambiar el tamaño del
+      <html> todo crece de forma proporcional. */
+html:has(#txt-medio:checked)  { font-size: 112.5%; }
+html:has(#txt-grande:checked) { font-size: 125%; }
+
+/* b) Modo oscuro: cambiamos las variables de color de Bootstrap. */
+html:has(#ajuste-oscuro:checked) {
+  color-scheme: dark;
+  --bs-body-bg: #101820;
+  --bs-body-color: #e6edf3;
+  --bs-emphasis-color: #fff;
+  --bs-secondary-color: #b4c0cc;
+  --bs-secondary-bg: #1a2530;
+  --bs-tertiary-bg: #16212b;
+  --bs-border-color: #33424f;
+  --bs-heading-color: #fff;
+  --bs-link-color: #48cae4;
+  --bs-link-hover-color: #90e0ef;
+}
+html:has(#ajuste-oscuro:checked) a { color: #48cae4; }
+html:has(#ajuste-oscuro:checked) a:hover { color: #90e0ef; }
+html:has(#ajuste-oscuro:checked) .btn-iq,
+html:has(#ajuste-oscuro:checked) .btn-wsp,
+html:has(#ajuste-oscuro:checked) .btn-claro,
+html:has(#ajuste-oscuro:checked) .navbar a,
+html:has(#ajuste-oscuro:checked) .pie a { color: #fff; }
+html:has(#ajuste-oscuro:checked) .btn-claro:hover { color: var(--iq-oscuro); }
+html:has(#ajuste-oscuro:checked) .marco-img { background: #1f3040; }
+html:has(#ajuste-oscuro:checked) .dropdown-menu { --bs-dropdown-bg: #1a2530; --bs-dropdown-link-color: #e6edf3; --bs-dropdown-link-hover-bg: #26384a; --bs-dropdown-link-hover-color: #fff; }
+html:has(#ajuste-oscuro:checked) .pie a:hover { color: #fff; }
+
+/* c) Quitar animaciones (útil para personas sensibles al movimiento) */
+html:has(#ajuste-sin-anim:checked) *,
+html:has(#ajuste-sin-anim:checked) *::before,
+html:has(#ajuste-sin-anim:checked) *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+
+/* ---------------------------------------------------------------------
+   8. RESPETO AL SISTEMA: si el dispositivo tiene activado
+      "reducir movimiento", también se quitan las animaciones.
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
